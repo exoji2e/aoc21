@@ -84,6 +84,21 @@ def grid8n(r, c):
                 o.append((rr, cc))
     return o
 
+def filter_coords(coords, R, C):
+    out = []
+    for r, c in coords:
+        if r < 0 or r >= R:
+            continue
+        if c < 0 or c >= C:
+            continue
+        out.append((r, c))
+    return out
+
+def grid4nf(r, c, R, C):
+    return filter_coords(grid4n(r, c), R, C)
+def grid8nf(r, c, R, C):
+    return filter_coords(grid8n(r, c), R, C)
+
 def is_int(n):
     try:
         int(n)
